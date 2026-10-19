@@ -101,13 +101,13 @@ Gustavo França
 * **Coleção `messages`:**
 ```json
 
-{
+ {
   "_id": "msg_001",
   "chat_id": "chat_xyz789",
   "sender_id": "user_adotante_01",
   "text": "Olá! Gostaria de saber mais sobre o pet.",
   "sent_at": "2026-10-19T10:05:00Z"
-}
+ }
 
 ### 5.4 Regras de Acesso e Segurança
 **Validação no Back-end:** Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
