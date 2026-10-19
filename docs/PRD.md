@@ -32,6 +32,7 @@
 * Envio de mídias pesadas (vídeos e áudios no chat).
 * Formulários complexos de triagem de adoção automatizados dentro da conversa.
 
+![Diagrama NoSQL](./imagens/figma-filtros.png)
 ---
 
 ## 3. Requisitos
@@ -65,15 +66,17 @@
 ---
 
 ## 4. Gerência do Projeto
-* **Integrantes e Responsabilidades:** *(Preencher com os nomes do grupo e divisões de tarefas)*
-* **Cronograma / Etapas:** *(Definir prazos para modelagem, protótipo no Figma, banco NoSQL e entrega)*
-* **Riscos e Mitigações:**
-  * *Risco:* Dificuldade com a integração ou consultas no banco NoSQL.
-  * *Mitigação:* Realizar testes prévios de conexão e modelagem na primeira semana.
+* **Integrantes e Responsabilidades:** 
+Maria Layane
+Vinícius Matheus
+Fabio Fernandes
+Gustavo França
 
 ---
 
 ## 5. Funcionalidade de Conversa com NoSQL
+
+![Diagrama NoSQL](./imagens/diagrama-nosql.png)
 
 ### 5.1 O Banco NoSQL Escolhido e Justificativa
 * **Banco de Dados Escolhido:** **MongoDB**
@@ -105,12 +108,12 @@
   "sent_at": "2026-10-19T10:05:00Z"
 }
 
-5.4 Regras de Acesso e Segurança
+### 5.4 Regras de Acesso e Segurança
 Validação no Back-end: Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
 
 Tratamento de Exceção: Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (403 Forbidden).
 
-5.5 Critérios de Aceitação da Funcionalidade
+### 5.5 Critérios de Aceitação da Funcionalidade
 Envio: O sistema impede o envio de texto vazio e grava o documento na coleção messages atrelando-o corretamente ao chat_id.
 
 Consulta: Ao abrir a conversa, o sistema filtra o histórico estritamente pelo chat_id correspondente.
