@@ -46,6 +46,72 @@
 * **RF06:** O sistema deve permitir o envio e salvamento de mensagens de texto entre os participantes da conversa em um banco de dados NoSQL.
 * **RF07:** O sistema deve exibir o histórico de mensagens de uma conversa ordenado cronologicamente (da mais antiga para a mais recente).
 
+* ### 3.3 Histórias de Usuário e Critérios de Aceitação
+* **História de Usuário 1:** *Como adotante, quero visualizar os detalhes de um pet para avaliar se ele se encaixa no meu estilo de vida.*
+  * *Critérios de Aceitação:*
+    1. A tela de detalhes deve exibir obrigatoriamente a foto, nome, idade e descrição do pet.
+    2. A tela deve conter um botão visível com o texto "Conversar com o Protetor".
+* **História de Usuário 2:** *Como adotante ou protetor, quero enviar mensagens de texto em uma conversa para negociar a adoção do pet.*
+  * *Critérios de Aceitação:*
+    1. O sistema não deve permitir o envio de mensagens com o campo de texto vazio.
+    2. Ao enviar, a mensagem deve ser gravada imediatamente na coleção de mensagens do banco NoSQL associada ao respectivo `chat_id`.
+    3. A nova mensagem deve aparecer instantaneamente na tela do remetente.
+
+---
+
+## 4. Gerência do Projeto
+* **Integrantes e Responsabilidades:** *(Preencher com os nomes do grupo e divisões de tarefas)*
+* **Cronograma / Etapas:** *(Definir prazos para modelagem, protótipo no Figma, banco NoSQL e entrega)*
+* **Riscos e Mitigações:**
+  * *Risco:* Dificuldade com a integração ou consultas no banco NoSQL.
+  * *Mitigação:* Realizar testes prévios de conexão e modelagem na primeira semana.
+
+---
+
+## 5. Funcionalidade de Conversa com NoSQL
+
+### 5.1 O Banco NoSQL Escolhido e Justificativa
+* **Banco de Dados Escolhido:** **MongoDB**
+* **Justificativa:** Escolhido pela flexibilidade de esquema (documentos JSON), excelente desempenho em operações de escrita em massa (essencial para chats) e escalabilidade horizontal.
+
+### 5.2 Regras de Negócio e Iniciação das Conversas
+1. **Vínculo com o Pet:** O chat nasce obrigatoriamente a partir da página de detalhes de um animal.
+2. **Prevenção de Duplicidade:** O sistema verifica se já existe um chat entre os mesmos usuários para aquele pet antes de criar um novo registro.
+3. **Quem pode conversar:** Apenas o adotante interessado e o protetor responsável pelo pet.
+
+### 5.3 Organização e Modelagem dos Dados (Esquema NoSQL)
+
+* **Coleção `chats`:**
+  ```json
+  {
+    "_id": "chat_xyz789",
+    "pet_id": "pet_456",
+    "participants": ["user_adotante_01", "user_protetor_02"],
+    "created_at": "2026-10-19T10:00:00Z"
+  }
+* **Coleção `messages`:**
+```json
+
+{
+  "_id": "msg_001",
+  "chat_id": "chat_xyz789",
+  "sender_id": "user_adotante_01",
+  "text": "Olá! Gostaria de saber mais sobre o pet.",
+  "sent_at": "2026-10-19T10:05:00Z"
+}
+
+5.4 Regras de Acesso e Segurança
+Validação no Back-end: Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
+
+Tratamento de Exceção: Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (403 Forbidden).
+
+5.5 Critérios de Aceitação da Funcionalidade
+Envio: O sistema impede o envio de texto vazio e grava o documento na coleção messages atrelando-o corretamente ao chat_id.
+
+Consulta: Ao abrir a conversa, o sistema filtra o histórico estritamente pelo chat_id correspondente.
+
+Ordenação: As mensagens são ordenadas em ordem cronológica crescente (sent_at: 1) para manter o fluxo natural da conversa.
+
 ### 3.2 Requisitos Não Funcionais (RNF)
 * **RNF01:** O banco de dados NoSQL utilizado para persistir as conversas e mensagens deve ser o **MongoDB**.
 * **RNF02:** O histórico de mensagens do chat deve carregar em no máximo 2 segundos após o usuário abrir a conversa.
