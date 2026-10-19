@@ -101,21 +101,20 @@ Gustavo França
 * **Coleção `messages`:**
 ```json
 
- {
+  {
   "_id": "msg_001",
   "chat_id": "chat_xyz789",
   "sender_id": "user_adotante_01",
   "text": "Olá! Gostaria de saber mais sobre o pet.",
   "sent_at": "2026-10-19T10:05:00Z"
- }
+  }
 
+```
 ### 5.4 Regras de Acesso e Segurança
-**Validação no Back-end:** Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
-**Tratamento de Exceção:** Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (403 Forbidden).
+1. **Validação no Back-end:** Apenas os IDs listados no array `participants` podem ler e escrever mensagens naquele chat.
+2. **Tratamento de Exceção:** Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (`403 Forbidden`).
 
 ### 5.5 Critérios de Aceitação da Funcionalidade
-* **Envio:** O sistema impede o envio de texto vazio e grava o documento na coleção messages atrelando-o corretamente ao chat_id.
-
-* **Consulta:** Ao abrir a conversa, o sistema filtra o histórico estritamente pelo chat_id correspondente.
-
-* **Ordenação:** As mensagens são ordenadas em ordem cronológica crescente (sent_at: 1) para manter o fluxo natural da conversa.
+1. **Envio:** O sistema impede o envio de texto vazio e grava o documento na coleção `messages` atrelando-o corretamente ao `chat_id`.
+2. **Consulta:** Ao abrir a conversa, o sistema filtra o histórico estritamente pelo `chat_id` correspondente.
+3. **Ordenação:** As mensagens são ordenadas em ordem cronológica crescente (`sent_at: 1`) para manter o fluxo natural da conversa.
