@@ -68,7 +68,7 @@
 
 ## 4. Gerência do Projeto
 * **Integrantes e Responsabilidades:** 
-Maria Layane
+Maria Layanne
 Vinícius Matheus
 Fabio Fernandes
 Gustavo França
