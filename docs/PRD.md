@@ -32,7 +32,7 @@
 * Envio de mídias pesadas (vídeos e áudios no chat).
 * Formulários complexos de triagem de adoção automatizados dentro da conversa.
 
-![Diagrama NoSQL](./imagens/figma-filtros.png)
+![Figma](././imagens/figma-filtros.png)
 ---
 
 ## 3. Requisitos
@@ -76,7 +76,7 @@ Gustavo França
 
 ## 5. Funcionalidade de Conversa com NoSQL
 
-![Diagrama NoSQL](./imagens/diagrama-nosql.png)
+![Diagrama NoSQL](././imagens/diagrama-nosql.png)
 
 ### 5.1 O Banco NoSQL Escolhido e Justificativa
 * **Banco de Dados Escolhido:** **MongoDB**
