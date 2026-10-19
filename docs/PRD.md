@@ -110,13 +110,12 @@ Gustavo França
 }
 
 ### 5.4 Regras de Acesso e Segurança
-Validação no Back-end: Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
-
-Tratamento de Exceção: Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (403 Forbidden).
+**Validação no Back-end:** Apenas os IDs listados no array participants podem ler e escrever mensagens naquele chat.
+**Tratamento de Exceção:** Tentativas de acesso externo ou de usuários não autorizados retornam um erro de acesso negado (403 Forbidden).
 
 ### 5.5 Critérios de Aceitação da Funcionalidade
-Envio: O sistema impede o envio de texto vazio e grava o documento na coleção messages atrelando-o corretamente ao chat_id.
+* **Envio:** O sistema impede o envio de texto vazio e grava o documento na coleção messages atrelando-o corretamente ao chat_id.
 
-Consulta: Ao abrir a conversa, o sistema filtra o histórico estritamente pelo chat_id correspondente.
+* **Consulta:** Ao abrir a conversa, o sistema filtra o histórico estritamente pelo chat_id correspondente.
 
-Ordenação: As mensagens são ordenadas em ordem cronológica crescente (sent_at: 1) para manter o fluxo natural da conversa.
+* **Ordenação:** As mensagens são ordenadas em ordem cronológica crescente (sent_at: 1) para manter o fluxo natural da conversa.
