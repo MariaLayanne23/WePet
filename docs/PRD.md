@@ -32,7 +32,7 @@
 * Envio de mídias pesadas (vídeos e áudios no chat).
 * Formulários complexos de triagem de adoção automatizados dentro da conversa.
 
-![Figma](imagens/figma-filtros.png) 
+![Figma](/imagens/figma-filtros.png) 
 
 ---
 
