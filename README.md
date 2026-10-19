@@ -7,7 +7,7 @@ Você pode acessar o documento completo de requisitos do produto clicando no lin
 * **[Acessar o PRD (Product Requirements Document)](./docs/PRD.md)**
 
 ## 👥 Integrantes
-* Maria Layane
+* Maria Layanne
 * Vinícius Matheus
 * Fabio Fernandes
 * Gustavo França 
